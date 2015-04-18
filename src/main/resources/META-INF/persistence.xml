@@ -4,9 +4,9 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
 
-    <persistence-unit name="MonoliticoPU" transaction-type="JTA">
+    <persistence-unit name="MonoliticaPU" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <jta-data-source>java:jboss/datasources/MonoliticoDS</jta-data-source>
+        <jta-data-source>java:jboss/datasources/MonoliticaDS</jta-data-source>
 
         <properties>
             <property name="hibernate.max_fetch_depth" value="0" />
