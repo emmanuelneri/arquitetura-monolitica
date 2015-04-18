@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:menu="http://emmanuelneri.com.br">
+
+<h:head>
+    <title>Portal</title>
+    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</h:head>
+
+<h:body>
+
+    <menu:menu configuracao="#{configuracaoController.configuracao}"
+        usuario="#{utilController.usuario}" />
+
+
+    <br />
+
+    <ui:insert name="conteudo" />
+
+</h:body>
+
+</html>

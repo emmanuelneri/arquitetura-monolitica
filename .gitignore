@@ -1,0 +1,15 @@
+.project
+.classpath
+.settings
+.springBeans
+.metadata
+.idea
+.externalToolBuilders
+rebel.xml
+target
+test-output
+/src/main/jasperreports/reports/*.jasper
+*.iml
+.idea/*
+!.idea/codeStyleSettings.xml
+!.idea/encodings.xml
