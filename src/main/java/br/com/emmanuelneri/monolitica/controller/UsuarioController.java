@@ -36,7 +36,7 @@ public class UsuarioController implements Serializable {
     }
 
     public void deletar() {
-        this.usuarioService.delete(usuario);
+        this.usuarioService.remove(usuario);
         buscar();
     }
 

@@ -7,6 +7,7 @@ import br.com.emmanuelneri.monolitica.util.GenericService;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import com.ocpsoft.pretty.faces.annotation.URLMappings;
 
+import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -14,14 +15,20 @@ import javax.inject.Named;
 @Named
 @ViewScoped
 @URLMappings(mappings = {
-        @URLMapping(id = "cadastro-cliente", viewId = "/cadastros/cliente/", pattern = "/pages/cadastros/cliente")
+        @URLMapping(id = "cadastro-cliente", pattern = "/cadastros/cliente/", viewId = "/pages/cadastros/cadastro-cliente.xhtml")
 })
 public class ClienteController extends AbstractCrudController<Cliente> {
 
-    private Cliente cliente;
+    private Cliente objeto;
 
     @Inject
     private ClienteService clienteService;
+
+    @PostConstruct
+    public void init() {
+        inicializarObjeto();
+        buscar();
+    }
 
     @Override
     protected GenericService getService() {
@@ -29,15 +36,23 @@ public class ClienteController extends AbstractCrudController<Cliente> {
     }
 
     @Override
-    public void editar(Cliente cliente) {
-        this.cliente = cliente;
+    protected String getNomeCadastro() {
+        return "Cliente";
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    @Override
+    protected void inicializarObjeto() {
+        this.objeto = new Cliente();
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    @Override
+    public Cliente getObjeto() {
+        return objeto;
     }
+
+    @Override
+    public Cliente setObjeto(Cliente cliente) {
+        return objeto = cliente;
+    }
+
 }

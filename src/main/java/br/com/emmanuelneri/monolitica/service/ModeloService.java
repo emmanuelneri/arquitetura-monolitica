@@ -6,5 +6,5 @@ import br.com.emmanuelneri.monolitica.util.GenericService;
 import javax.inject.Named;
 
 @Named
-public class ModeloService extends GenericService<Modelo> {
+public class ModeloService extends GenericService<Modelo, Long> {
 }

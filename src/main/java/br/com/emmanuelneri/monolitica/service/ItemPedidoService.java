@@ -6,5 +6,5 @@ import br.com.emmanuelneri.monolitica.util.GenericService;
 import javax.inject.Named;
 
 @Named
-public class ItemPedidoService extends GenericService<ItemPedido> {
+public class ItemPedidoService extends GenericService<ItemPedido, Long> {
 }

@@ -1,6 +1,7 @@
 package br.com.emmanuelneri.monolitica.util;
 
 import com.google.common.collect.Iterables;
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
@@ -11,7 +12,7 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
-public abstract class GenericService<T extends Model> implements Serializable {
+public abstract class GenericService<T extends Model<ID>, ID extends Serializable> implements Serializable {
 
     private Class<T> type;
 
@@ -39,8 +40,8 @@ public abstract class GenericService<T extends Model> implements Serializable {
     }
 
     @Transactional
-    public void delete(T object) {
-        this.entityManager.remove(object);
+    public void remove(T object) {
+        this.entityManager.remove(this.entityManager.getReference(this.type, object.getId()));
     }
 
     @Transactional

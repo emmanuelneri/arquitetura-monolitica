@@ -6,7 +6,7 @@ import br.com.emmanuelneri.monolitica.util.GenericService;
 import javax.inject.Named;
 
 @Named
-public class UsuarioService extends GenericService<Usuario> {
+public class UsuarioService extends GenericService<Usuario, Long> {
 
     public Usuario buscaParaLogin(String email) {
         return getResultOrNull(getEntityManager().createNamedQuery("Usuario.findByEmail", Usuario.class)

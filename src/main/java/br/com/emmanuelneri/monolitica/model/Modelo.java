@@ -4,6 +4,8 @@ import br.com.emmanuelneri.monolitica.model.enuns.Marca;
 import br.com.emmanuelneri.monolitica.util.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,6 +24,7 @@ public class Modelo implements Model<Long> {
     private String nome;
 
     @NotNull
+    @Enumerated(EnumType.STRING)
     private Marca marca;
 
     @Override
