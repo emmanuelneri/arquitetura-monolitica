@@ -23,7 +23,8 @@
         </p:panel>
 
         <p:panel id="panelListagem" header="Listagem de Clientes">
-            <p:dataTable value="#{clienteController.lista}" var="cliente">
+            <p:dataTable value="#{clienteController.lista}" var="cliente" paginator="true"
+                         rows="20">
                 <p:column headerText="Nome">
                     <h:outputText value="#{cliente.nome}"/>
                 </p:column>

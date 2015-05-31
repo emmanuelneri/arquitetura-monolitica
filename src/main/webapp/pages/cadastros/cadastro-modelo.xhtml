@@ -30,7 +30,8 @@
             </p:panel>
 
             <p:panel id="panelListagem" header="Listagem de Modelos">
-                <p:dataTable value="#{modeloController.lista}" var="modelo">
+                <p:dataTable value="#{modeloController.lista}" var="modelo" paginator="true"
+                             rows="20">
                     <p:column headerText="Nome">
                         <h:outputText value="#{modelo.nome}"/>
                     </p:column>

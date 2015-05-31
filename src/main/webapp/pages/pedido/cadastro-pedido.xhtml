@@ -15,7 +15,9 @@
             <div class="row">
                 <div class="col-md-2">
                     <h:outputLabel value="Data Criação: " />
-                    <h:outputText value="#{pedidoController.pedido.dataCriacao}"/>
+                    <h:outputText value="#{pedidoController.pedido.dataCriacao}">
+                        <f:converter converterId="localDateConverter" />
+                    </h:outputText>
                 </div>
 
                 <div class="col-md-2">
