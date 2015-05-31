@@ -24,9 +24,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@NamedQueries(
-        @NamedQuery(name = "Pedido.findPedidoCompletoById", query = "select p from Pedido p JOIN FETCH p.itens where p.id = :id")
-)
+@NamedQueries({
+        @NamedQuery(name = "Pedido.findPedidoCompletoById", query = "select p from Pedido p JOIN FETCH p.itens where p.id = :id"),
+        @NamedQuery(name = "Pedido.findTopClientes", query = "select new br.com.emmanuelneri.monolitica.vo.ClienteRankingVo(c, count(i.quantidade), sum(i.valorTotal)) from Pedido p join p.cliente c join p.itens i where p.situacaoPedido <> 'CANCELADO' group by c order by sum(i.valorTotal) desc")
+})
 public class Pedido implements Model<Long>  {
 
     @Id
