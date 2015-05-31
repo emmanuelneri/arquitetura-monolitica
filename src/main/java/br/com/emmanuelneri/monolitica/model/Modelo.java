@@ -47,4 +47,23 @@ public class Modelo implements Model<Long> {
     public void setMarca(Marca marca) {
         this.marca = marca;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Modelo modelo = (Modelo) o;
+
+        if (nome != null ? !nome.equals(modelo.nome) : modelo.nome != null) return false;
+        return marca == modelo.marca;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = nome != null ? nome.hashCode() : 0;
+        result = 31 * result + (marca != null ? marca.hashCode() : 0);
+        return result;
+    }
 }

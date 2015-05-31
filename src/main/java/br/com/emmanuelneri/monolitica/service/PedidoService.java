@@ -1,10 +1,49 @@
 package br.com.emmanuelneri.monolitica.service;
 
+import br.com.emmanuelneri.monolitica.exception.ValidationException;
 import br.com.emmanuelneri.monolitica.model.Pedido;
+import br.com.emmanuelneri.monolitica.model.enuns.SituacaoPedido;
 import br.com.emmanuelneri.monolitica.util.GenericService;
+import org.hibernate.Hibernate;
 
 import javax.inject.Named;
+import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.util.List;
 
 @Named
 public class PedidoService extends GenericService<Pedido, Long> {
+
+    @Transactional
+    public void salvar(Pedido pedido) throws ValidationException {
+
+        if(pedido.getCliente() == null) {
+            throw new ValidationException("O pedido deve conter um cliente");
+        }
+
+        if(pedido.getItens().isEmpty()) {
+            throw new ValidationException("O pedido deve conter ao menos um item");
+        }
+
+        if(!pedido.isPedidoEditavel()) {
+            throw new ValidationException("Apenas pedidos abertos podem ser alterados");
+        }
+
+        save(pedido);
+    }
+
+    @Transactional
+    public void finalizar(Pedido pedido) {
+        pedido.setDataFinalizacao(LocalDate.now());
+        pedido.setSituacaoPedido(SituacaoPedido.FINALIZADO);
+        save(pedido);
+    }
+
+    public Pedido findPedidoCompletoById(Long id) {
+        @SuppressWarnings("unchecked")
+        final List<Pedido> pedidos = getEntityManager().createNamedQuery("Pedido.findPedidoCompletoById")
+                .setParameter("id", id).getResultList();
+
+        return getResultOrNull(pedidos);
+    }
 }

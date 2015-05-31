@@ -17,9 +17,6 @@
 <h:body>
 
     <h:form id="formMenu">
-
-        <p:growl autoUpdate="true" sticky="true" />
-
         <nav class="navbar navbar-fixed-top navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
@@ -35,6 +32,13 @@
                                 <li><h:commandLink value="Cadastro de Veículo" action="pretty:cadastro-veiculo" /></li>
                             </ul>
                         </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pedido <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><h:commandLink value="Cadastro Pedido" action="pretty:cadastro-pedido" /></li>
+                                <li><h:commandLink value="Consulta Pedido" action="pretty:consulta-pedido" /></li>
+                            </ul>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">#{menuController.usuario.email}</a></li>
@@ -45,10 +49,13 @@
         </nav>
     </h:form>
 
-
     <br />
 
-    <ui:insert name="conteudo" />
+    <div class="container-fluid">
+        <p:growl autoUpdate="true" sticky="true" />
+        <ui:insert name="conteudo" />
+    </div>
+
 
 </h:body>
 

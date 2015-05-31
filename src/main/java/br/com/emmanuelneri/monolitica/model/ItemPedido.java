@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Entity(name = "item_pedido")
 public class ItemPedido implements Model<Long> {
@@ -34,40 +35,49 @@ public class ItemPedido implements Model<Long> {
     @JoinColumn(name = "id_veiculo")
     private Veiculo veiculo;
 
+    protected ItemPedido() {
+
+    }
+
+    public ItemPedido(BigDecimal valorUnitario, int quantidade, Veiculo veiculo) {
+        this.valorUnitario = valorUnitario;
+        this.quantidade = quantidade;
+        this.valorTotal = valorUnitario.multiply(BigDecimal.valueOf(quantidade));
+        this.veiculo = veiculo;
+    }
+
     @Override
     public Long getId() {
         return id;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public BigDecimal getValorUnitario() {
-        return valorUnitario;
-    }
-
-    public void setValorUnitario(BigDecimal valorUnitario) {
-        this.valorUnitario = valorUnitario;
     }
 
     public BigDecimal getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(BigDecimal valorTotal) {
-        this.valorTotal = valorTotal;
+    public BigDecimal getValorUnitario() {
+        return valorUnitario;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
     }
 
     public Veiculo getVeiculo() {
         return veiculo;
     }
 
-    public void setVeiculo(Veiculo veiculo) {
-        this.veiculo = veiculo;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ItemPedido that = (ItemPedido) o;
+        return Objects.equals(valorUnitario, that.valorUnitario) &&
+                Objects.equals(veiculo, that.veiculo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(valorUnitario, veiculo);
     }
 }
