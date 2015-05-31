@@ -6,9 +6,9 @@ import java.math.BigDecimal;
 
 public final class ClienteRankingVo {
 
-    private Cliente cliente;
-    private Long quantidadeVeiculo;
-    private BigDecimal valorTotal;
+    private final Cliente cliente;
+    private final Long quantidadeVeiculo;
+    private final BigDecimal valorTotal;
 
     public ClienteRankingVo(Cliente cliente, Long quantidadeVeiculo, BigDecimal valorTotal) {
         this.cliente = cliente;

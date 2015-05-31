@@ -26,7 +26,8 @@ import java.util.List;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Pedido.findPedidoCompletoById", query = "select p from Pedido p JOIN FETCH p.itens where p.id = :id"),
-        @NamedQuery(name = "Pedido.findTopClientes", query = "select new br.com.emmanuelneri.monolitica.vo.ClienteRankingVo(c, count(i.quantidade), sum(i.valorTotal)) from Pedido p join p.cliente c join p.itens i where p.situacaoPedido <> 'CANCELADO' group by c order by sum(i.valorTotal) desc")
+        @NamedQuery(name = "Pedido.findTopClientes", query = "select new br.com.emmanuelneri.monolitica.vo.ClienteRankingVo(c, count(i.quantidade), sum(i.valorTotal)) from Pedido p join p.cliente c join p.itens i where p.situacaoPedido <> 'CANCELADO' group by c order by sum(i.valorTotal) desc"),
+        @NamedQuery(name = "Pedido.findTopVeiculo", query = "select new br.com.emmanuelneri.monolitica.vo.VeiculoRankingVo(v, count(i.quantidade)) from Pedido p join p.itens i join i.veiculo v where p.situacaoPedido <> 'CANCELADO' group by v order by count(i.quantidade) desc")
 })
 public class Pedido implements Model<Long>  {
 

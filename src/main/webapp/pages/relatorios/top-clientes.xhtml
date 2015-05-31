@@ -7,28 +7,26 @@
 
 <ui:define name="conteudo">
 
-    <h1>Cadastro de Cliente</h1>
+    <h1>Top Clientes</h1>
 
     <h:form id="form">
-        <p:panel id="panelListagem" header="Top Clientes">
-            <p:dataTable value="#{topClientesController.clientes}" var="cliente" paginator="true"
-                         rows="20" rowIndexVar="index">
-                <p:column>
-                    <h:outputText value="#{index + 1}"/>
-                </p:column>
-                <p:column headerText="Nome">
-                    <h:outputText value="#{cliente.cliente.nome}"/>
-                </p:column>
-                <p:column headerText="Quantidade de Veículos" style="text-align: center" sortBy="#{cliente.quantidadePedido}">
-                    <h:outputText value="#{cliente.quantidadeVeiculo}"/>
-                </p:column>
-                <p:column headerText="Valor Total em Pedidos" style="text-align: center" sortBy="#{cliente.valorTotal}">
-                    <h:outputText value="#{cliente.valorTotal}">
-                        <f:convertNumber type="currency" />
-                    </h:outputText>
-                </p:column>
-            </p:dataTable>
-        </p:panel>
+        <p:dataTable value="#{topClientesController.clientes}" var="cliente" paginator="true"
+                    rows="20" rowIndexVar="index">
+            <p:column>
+                <h:outputText value="#{index + 1}"/>
+            </p:column>
+            <p:column headerText="Nome">
+                <h:outputText value="#{cliente.cliente.nome}"/>
+            </p:column>
+            <p:column headerText="Quantidade de Veículos" style="text-align: center" sortBy="#{cliente.quantidadePedido}">
+                <h:outputText value="#{cliente.quantidadeVeiculo}"/>
+            </p:column>
+            <p:column headerText="Valor Total em Pedidos" style="text-align: center" sortBy="#{cliente.valorTotal}">
+                <h:outputText value="#{cliente.valorTotal}">
+                    <f:convertNumber type="currency" />
+                </h:outputText>
+            </p:column>
+        </p:dataTable>
     </h:form>
 
 </ui:define>

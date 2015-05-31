@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.monolitica.controller;
 
 import br.com.emmanuelneri.monolitica.service.PedidoService;
-import br.com.emmanuelneri.monolitica.vo.ClienteRankingVo;
+import br.com.emmanuelneri.monolitica.vo.VeiculoRankingVo;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import com.ocpsoft.pretty.faces.annotation.URLMappings;
@@ -15,21 +15,21 @@ import java.util.List;
 @Named
 @ViewScoped
 @URLMappings(mappings = {
-        @URLMapping(id = "top-clientes", pattern = "/relatorios/clientes/top/", viewId = "/pages/relatorios/top-clientes.xhtml")
+        @URLMapping(id = "top-veiculos", pattern = "/relatorios/veiculos/top/", viewId = "/pages/relatorios/top-veiculos.xhtml")
 })
-public class TopClientesController implements Serializable {
+public class TopVeiculosController implements Serializable {
 
-    private List<ClienteRankingVo> clientes;
+    private List<VeiculoRankingVo> veiculos;
 
     @Inject
     private PedidoService pedidoService;
 
-    @URLAction(mappingId = "top-clientes", onPostback = false)
+    @URLAction(mappingId = "top-veiculos", onPostback = false)
     public void init() {
-        clientes = pedidoService.findTopClientes();
+        veiculos = pedidoService.findTopVeiculos();
     }
 
-    public List<ClienteRankingVo> getClientes() {
-        return clientes;
+    public List<VeiculoRankingVo> getVeiculos() {
+        return veiculos;
     }
 }

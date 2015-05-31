@@ -5,6 +5,7 @@ import br.com.emmanuelneri.monolitica.model.Pedido;
 import br.com.emmanuelneri.monolitica.model.enuns.SituacaoPedido;
 import br.com.emmanuelneri.monolitica.util.GenericService;
 import br.com.emmanuelneri.monolitica.vo.ClienteRankingVo;
+import br.com.emmanuelneri.monolitica.vo.VeiculoRankingVo;
 import org.hibernate.Hibernate;
 
 import javax.inject.Named;
@@ -50,5 +51,9 @@ public class PedidoService extends GenericService<Pedido, Long> {
 
     public List<ClienteRankingVo> findTopClientes() {
         return getEntityManager().createNamedQuery("Pedido.findTopClientes", ClienteRankingVo.class).getResultList();
+    }
+
+    public List<VeiculoRankingVo> findTopVeiculos() {
+        return getEntityManager().createNamedQuery("Pedido.findTopVeiculo", VeiculoRankingVo.class).getResultList();
     }
 }
