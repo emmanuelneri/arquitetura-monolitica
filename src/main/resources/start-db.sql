@@ -78,23 +78,23 @@ INSERT INTO pedido( id, data_criacao, data_finalizacao, situacaopedido, valor_to
 INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (4, 1, 75000, 75000, (select id from veiculo where nome = 'Cruze LTZ Aut'), 4);
 
 INSERT INTO pedido( id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (5, '2015-01-10', '2015-01-12', 'FINALIZADO', 75000, (select id from cliente where nome = 'Cliente 3'), (select id from usuario where email = 'teste@gmail.com'));
-INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (5, 1, 75000, 75000, (select id from veiculo where nome = 'Cruze LTZ Aut'), 5;
+INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (5, 1, 75000, 75000, (select id from veiculo where nome = 'Cruze LTZ Aut'), 5);
 
 INSERT INTO pedido( id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (6, '2015-02-15', '2015-01-15', 'FINALIZADO', 16000, (select id from cliente where nome = 'Cliente 3'), (select id from usuario where email = 'teste@gmail.com'));
-INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (6, 1, 16000, 16000, (select id from veiculo where nome = 'Cadenza'), 6;
+INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (6, 1, 16000, 16000, (select id from veiculo where nome = 'Cadenza'), 6);
 
 INSERT INTO pedido( id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (7, '2015-04-20', '2015-04-30', 'FINALIZADO', 500000, (select id from cliente where nome = 'Cliente 4'), (select id from usuario where email = 'teste@gmail.com'));
-INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (7, 1, 110000, 110000, (select id from veiculo where nome = 'Jetta TSI'), 7;
-INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (8, 2, 60000, 1200000, (select id from veiculo where nome = 'Golf Comforline'), 7;
-INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (9, 1, 130000, 130000, (select id from veiculo where nome = 'Golf GTI'), 7;
-INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (10, 2, 70000, 140000, (select id from veiculo where nome = 'Jetta Comforline'), 7;
+INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (7, 1, 110000, 110000, (select id from veiculo where nome = 'Jetta TSI'), 7);
+INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (8, 2, 60000, 1200000, (select id from veiculo where nome = 'Golf Comforline'), 7);
+INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (9, 1, 130000, 130000, (select id from veiculo where nome = 'Golf GTI'), 7);
+INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (10, 2, 70000, 140000, (select id from veiculo where nome = 'Jetta Comforline'), 7);
 
 INSERT INTO pedido( id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (8, '2015-04-20', '2015-04-30', 'FINALIZADO', 514000, (select id from cliente where nome = 'Cliente 5'), (select id from usuario where email = 'teste@gmail.com'));
-INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (11, 1, 90000, 90000, (select id from veiculo where nome = 'Fusion iVCT'), 8;
-INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (12, 1, 130000, 130000, (select id from veiculo where nome = 'Fusion GTDi 4WD'), 8;
-INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (13, 1, 95000, 95000, (select id from veiculo where nome = 'Focus Titanium'), 8;
-INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (14, 1, 55000, 55000, (select id from veiculo where nome = 'New Fiesta Titanium'), 8;
-INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (15, 2, 48000, 144000, (select id from veiculo where nome = 'New Fiesta SE'), 8;
+INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (11, 1, 90000, 90000, (select id from veiculo where nome = 'Fusion iVCT'), 8);
+INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (12, 1, 130000, 130000, (select id from veiculo where nome = 'Fusion GTDi 4WD'), 8);
+INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (13, 1, 95000, 95000, (select id from veiculo where nome = 'Focus Titanium'), 8);
+INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (14, 1, 55000, 55000, (select id from veiculo where nome = 'New Fiesta Titanium'), 8);
+INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (15, 2, 48000, 144000, (select id from veiculo where nome = 'New Fiesta SE'), 8);
 
 INSERT INTO pedido( id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (9, '2015-03-31', null, 'CANCELADO', 140000, (select id from cliente where nome = 'Cliente 1'), (select id from usuario where email = 'teste@gmail.com'));
 INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (16, 1, 140000, 140000, (select id from veiculo where nome = 'A3 1.8T Attraction'), 9);
