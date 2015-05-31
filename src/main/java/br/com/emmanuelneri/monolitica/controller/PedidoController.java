@@ -19,6 +19,7 @@ import com.ocpsoft.pretty.faces.annotation.URLMappings;
 import org.omnifaces.util.Messages;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -94,20 +95,18 @@ public class PedidoController implements Serializable {
         this.pedido.removerItem(itemPedido);
     }
 
-    public String salvar() {
+    public void salvar() {
         try {
             pedidoService.salvar(pedido);
-            idPedido = pedido.getId();
-            return "pretty:editar-pedido";
+            Messages.addInfo(null, "Pedido salvo com sucesso!");
         } catch (ValidationException vex) {
             Messages.addError(null, vex.getMessage());
         }
-        return "";
     }
 
-    public String finalizar() {
+    public void finalizar() {
         pedidoService.finalizar(pedido);
-        return "pretty:editar-pedido";
+        Messages.addInfo(null, "Pedido finalizado com sucesso!");
     }
 
     public boolean isPodeEditarPedido() {

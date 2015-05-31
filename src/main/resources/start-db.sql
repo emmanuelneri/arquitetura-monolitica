@@ -105,4 +105,7 @@ INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo,
 INSERT INTO pedido( id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (11, '2015-03-31', null, 'ABERTO', 40000, (select id from cliente where nome = 'Cliente 1'), (select id from usuario where email = 'teste@gmail.com'));
 INSERT INTO item_pedido(id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (18, 1, 40000, 40000, (select id from veiculo where nome = 'Range Rover Sport'), 11);
 
+SELECT setval('pedido_id_seq', (select max(id) from pedido));
+SELECT setval('item_pedido_id_seq', (select max(id) from item_pedido));
+
 

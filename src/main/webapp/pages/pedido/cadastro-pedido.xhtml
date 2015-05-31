@@ -12,32 +12,34 @@
 
         <h:form id="form">
 
-            <div class="row">
-                <div class="col-md-2">
-                    <h:outputLabel value="Data Criação: " />
-                    <h:outputText value="#{pedidoController.pedido.dataCriacao}">
-                        <f:converter converterId="localDateConverter" />
-                    </h:outputText>
+            <h:panelGroup id="panelPedido">
+                <div class="row">
+                    <div class="col-md-2">
+                        <h:outputLabel value="Data Criação: " />
+                        <h:outputText value="#{pedidoController.pedido.dataCriacao}">
+                            <f:converter converterId="localDateConverter" />
+                        </h:outputText>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h:outputLabel value="Situação: " />
+                        <h:outputText value="#{pedidoController.pedido.situacaoPedido.descricao}"/>
+                    </div>
                 </div>
 
-                <div class="col-md-2">
-                    <h:outputLabel value="Situação: " />
-                    <h:outputText value="#{pedidoController.pedido.situacaoPedido.descricao}"/>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h:outputLabel value="Cliente" />
+                        <h:selectOneMenu value="#{pedidoController.pedido.cliente}" disabled="#{not pedidoController.podeEditarPedido}"
+                                         converter="genericEntityConverter" styleClass="form-control">
+                            <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
+                            <f:selectItems value="#{pedidoController.clientes}" var="cliente"
+                                           itemValue="#{cliente}" itemLabel="#{cliente.nome}" />
+                            <f:ajax event="change" execute="@this" />
+                        </h:selectOneMenu>
+                    </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4">
-                    <h:outputLabel value="Cliente" />
-                    <h:selectOneMenu value="#{pedidoController.pedido.cliente}" disabled="#{not pedidoController.podeEditarPedido}"
-                                     converter="genericEntityConverter" styleClass="form-control">
-                        <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
-                        <f:selectItems value="#{pedidoController.clientes}" var="cliente"
-                                       itemValue="#{cliente}" itemLabel="#{cliente.nome}" />
-                        <f:ajax event="change" execute="@this" />
-                    </h:selectOneMenu>
-                </div>
-            </div>
+            </h:panelGroup>
 
             <p:panel header="Itens" style="margin-top: 10px">
                 <h:panelGroup layout="block" id="panelCadastroItem"
@@ -47,7 +49,8 @@
                         <div class="col-md-2">
                             <h:outputLabel value="Marca" />
                             <h:selectOneMenu value="#{pedidoController.marca}" styleClass="form-control"
-                                             converter="omnifaces.GenericEnumConverter">
+                                             converter="omnifaces.GenericEnumConverter"
+                                             required="true" requiredMessage="Selecione uma marca">
                                 <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
                                 <f:selectItems value="#{pedidoController.marcas}" var="marca"
                                                itemValue="#{marca}" itemLabel="#{marca.descricao}" />
@@ -58,7 +61,8 @@
                         <div class="col-md-2">
                             <h:outputLabel value="Modelo" />
                             <h:selectOneMenu id="comboModelo" value="#{pedidoController.modelo}" styleClass="form-control"
-                                             converter="genericEntityConverter" disabled="#{pedidoController.marca == null}">
+                                             converter="genericEntityConverter" disabled="#{pedidoController.marca == null}"
+                                             required="true" requiredMessage="Selecione um modelo">
                                 <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
                                 <f:selectItems value="#{pedidoController.modelos}" var="modelo"
                                                itemValue="#{modelo}" itemLabel="#{modelo.nome}" />
@@ -69,7 +73,8 @@
                         <div class="col-md-2">
                             <h:outputLabel value="Veículo" />
                             <h:selectOneMenu id="comboVeiculo" value="#{pedidoController.veiculo}" styleClass="form-control"
-                                             converter="genericEntityConverter"  disabled="#{pedidoController.modelo == null}">
+                                             converter="genericEntityConverter"  disabled="#{pedidoController.modelo == null}"
+                                             required="true" requiredMessage="Selecione um veículo">
                                 <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
                                 <f:selectItems value="#{pedidoController.veiculos}" var="veiculo"
                                                itemValue="#{veiculo}" itemLabel="#{veiculo.nome}" />
@@ -80,12 +85,14 @@
                     <div class="row" style="margin-top: 5px">
                         <div class="col-md-2">
                             <h:outputLabel value="Quantidade" />
-                            <h:inputText value="#{pedidoController.quantidade}"/>
+                            <h:inputText value="#{pedidoController.quantidade}"
+                                         required="true" requiredMessage="Informe uma quantidade"/>
                          </div>
 
                         <div class="col-md-2">
                             <h:outputLabel value="Valor Unitário" />
-                            <h:inputText value="#{pedidoController.valorUnitario}"/>
+                            <h:inputText value="#{pedidoController.valorUnitario}"
+                                         required="true" requiredMessage="Informe o valor unitário" />
                         </div>
                     </div>
                     <div class="row">
@@ -136,13 +143,12 @@
 
             <div class="row" style="margin-top: 10px">
                 <div class="col-md-6">
-                    <h:commandLink value="Salvar" action="#{pedidoController.salvar}"
+                    <p:commandLink value="Salvar" action="#{pedidoController.salvar}" update="@form" process="@this panelPedido tableItens"
                                    styleClass="btn btn-primary" rendered="#{pedidoController.podeEditarPedido}">
-                    </h:commandLink>
-                    <h:commandLink value="Finalizar" action="#{pedidoController.finalizar}" style="margin-left: 5px "
+                    </p:commandLink>
+                    <p:commandLink value="Finalizar" action="#{pedidoController.finalizar}" style="margin-left: 5px " update="@form" process="@this panelPedido tableItens"
                                    styleClass="btn btn-success" rendered="#{pedidoController.podeFinalizarPedido and pedidoController.podeEditarPedido}">
-                        <f:param value="#{pedidoController.pedido.id}" />
-                    </h:commandLink>
+                    </p:commandLink>
                     <pretty:link mappingId="consulta-pedido" styleClass="btn btn-default" style="margin-left: 5px ">
                         Voltar
                     </pretty:link>
