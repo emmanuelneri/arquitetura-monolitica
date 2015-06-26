@@ -2,7 +2,6 @@ package br.com.emmanuelneri.monolitica.service;
 
 import br.com.emmanuelneri.monolitica.model.Modelo;
 import br.com.emmanuelneri.monolitica.model.Veiculo;
-import br.com.emmanuelneri.monolitica.model.enuns.Marca;
 import br.com.emmanuelneri.monolitica.util.GenericService;
 import com.google.common.base.Function;
 import com.google.common.collect.Multimaps;

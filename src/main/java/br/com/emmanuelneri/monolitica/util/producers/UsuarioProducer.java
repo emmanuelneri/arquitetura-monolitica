@@ -6,7 +6,6 @@ import br.com.emmanuelneri.monolitica.util.anotations.UsuarioLogado;
 import org.apache.shiro.SecurityUtils;
 
 import javax.enterprise.inject.Produces;
-import javax.inject.Named;
 
 public final class UsuarioProducer {
 

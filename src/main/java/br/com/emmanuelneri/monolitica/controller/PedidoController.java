@@ -19,7 +19,6 @@ import com.ocpsoft.pretty.faces.annotation.URLMappings;
 import org.omnifaces.util.Messages;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;

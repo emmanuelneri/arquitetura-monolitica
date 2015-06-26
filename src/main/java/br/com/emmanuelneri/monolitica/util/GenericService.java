@@ -1,7 +1,6 @@
 package br.com.emmanuelneri.monolitica.util;
 
 import com.google.common.collect.Iterables;
-import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 

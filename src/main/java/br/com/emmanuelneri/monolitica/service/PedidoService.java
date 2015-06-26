@@ -6,7 +6,6 @@ import br.com.emmanuelneri.monolitica.model.enuns.SituacaoPedido;
 import br.com.emmanuelneri.monolitica.util.GenericService;
 import br.com.emmanuelneri.monolitica.vo.ClienteRankingVo;
 import br.com.emmanuelneri.monolitica.vo.VeiculoRankingVo;
-import org.hibernate.Hibernate;
 
 import javax.inject.Named;
 import javax.transaction.Transactional;

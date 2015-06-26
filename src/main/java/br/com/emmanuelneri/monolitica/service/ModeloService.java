@@ -8,7 +8,6 @@ import com.google.common.collect.Multimaps;
 
 import javax.inject.Named;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 @Named
