@@ -1,3 +1,5 @@
+#Arquitetura
+![alt tag](https://github.com/emmanuelneri/arquitetura-monolitica/blob/master/arquitetura-monolotica.png)
 
 #Requisitos
 - Postgres 9.3+
